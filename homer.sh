@@ -26,12 +26,21 @@ loadGenome.pl -gtf /data01/wangyf/project2/CyprinusCarpio/15.pop/7.annovar/new/g
               -fasta /data01/wangyf/project2/CyprinusCarpio/15.pop/7.annovar/new/genome/genome.fa \
               -org null
 # 注释peak：peak所处区域，附近基因是什么
+# 加上-CpG命令可以生成CpG含量和GC含量
 annotatePeaks.pl 300bp.bed commoncarp -CpG > annotated_peaks.txt
 
 # 运行homer
 findMotifsGenome.pl 300bp.bed commoncarp out
 # -size 200是常用设置，指的是每个峰的中心点前后各 100 bp，总共 200 bp 的区域将被考虑进行分析。如果要用peak的实际大小进行分析的话使用-size given
 # 会出来两个结果。homerResults.html【是新motif发现的结果】和knownResults.html【展示的是已知motif的发现结果】可以下载在浏览器中打开。
+
+结果文件: 5列
+chr: 染色体编号（如 chr1, chr2）
+start: 基序匹配的起始位置
+end: 基序匹配的终止位置
+motifName: 基序的名称
+score: 基序匹配的得分
+strand: 链方向（+ 或 -）。
 
 # 在整个基因组中找到与.motif匹配的所有位置
 scanMotifGenomeWide.pl out/homerMotifs.all.motifs commoncarp -bed > out/homerMotifs.all.motifs.bed
