@@ -17,6 +17,8 @@ perl /data01/wangyf/software/homer/configureHomer.pl -h
 perl /data01/wangyf/software/homer/configureHomer.pl -list
 # 安装
 perl /data01/wangyf/software/homer/configureHomer.pl -install zebrafish-p
+perl /data01/wangyf/software/homer/configureHomer.pl -install zebrafish-o
+perl /data01/wangyf/software/homer/configureHomer.pl -install danRer7
 
 # 加载自己的基因组
 loadGenome.pl -gtf /data01/wangyf/project2/CyprinusCarpio/15.pop/7.annovar/new/genome/genome.gtf \
